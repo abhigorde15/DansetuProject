@@ -1,18 +1,22 @@
+import {  Route, Routes } from "react-router-dom";
+import "./App.css";
 
-import './App.css'
-import Header from './component/Header'
+import Login from "./component/Login";
+import Register from "./component/Register";
+import HomePage from "./Pages/HomePage";
 
 function App() {
-  
-
   return (
     <>
-    <Header></Header>
-    <h1>This is Frontend file for hackathon Project</h1>
-      
-       
+     
+      <Routes>
+
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<HomePage />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
