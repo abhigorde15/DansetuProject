@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, rgba(255, 235, 205, 0.8), rgba(240, 248, 255, 0.8)), 
+                url('./b6.webp'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    background-color: #ff69b4;
+    padding: 20px;
+    color: white;
+}
+
+/* Title Styles */
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Navigation Styles */
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Event Details Section */
+.event-details {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Organizer Details */
+.organizer-details {
+    margin-bottom: 20px;
+}
+
+.organizer-info {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+}
+
+/* Additional Info */
+.additional-info {
+    margin: 20px 0;
+    background: #ffe4e1;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Gallery Styles */
+.gallery {
+    margin: 20px 0;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery-images img {
+    width: 30%;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+/* Button Styles */
+button {
+    padding: 10px 15px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #ff1493;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ff69b4;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

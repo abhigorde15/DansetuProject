@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Booking - EventQ</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+    <!-- Ocean view image -->
+    <!-- <img class="header-img" src="booking.jpeg" alt="Ocean View"> -->
+
+    <!-- Booking Form -->
+    <div class="container">
+        <h1>Event Booking</h1>
+        <p>Experience something special with us</p>
+
+        <!-- <form action="/api/book-event" method="POST"> -->
+            <form id="bookingForm">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="ex: myname@example.com" required>
+
+            <label for="numGuests">Number of Guests *</label>
+            <input type="number" id="numGuests" name="numGuests" min="1" required>
+
+            <label for="date">Event Date *</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Event Time *</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="submit" id="bookEventButton">Book Event</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EventQ. All Rights Reserved.</p>
+    </footer>
+
+    <script src="booking.js" defer></script>
+</body>
+</html>

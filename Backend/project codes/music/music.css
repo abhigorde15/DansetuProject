@@ -1,0 +1,120 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; /* Lighter background for softness */
+    color: #333333; /* Darker text for better readability */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #00796b; /* Teal color for header */
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav a {
+    color: #ffcc00; /* Bright yellow for navigation links */
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffa500; /* Orange color on hover */
+}
+
+.event-details {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #1e1e2f; /* Consistent dark color for headings */
+}
+
+.organizer-info {
+    margin-bottom: 20px;
+}
+
+.organizer-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.organizer-info ul li {
+    margin: 5px 0;
+}
+
+button {
+    background-color: #ffcc00; /* Yellow button */
+    color: #1e1e2f;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Added transform for hover effect */
+}
+
+button:hover {
+    background-color: #ffa500; /* Orange on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.additional-info {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #e9ecef; /* Light gray background for additional info */
+    border-left: 5px solid #ffcc00; /* Yellow border for emphasis */
+}
+
+.gallery {
+    margin-top: 20px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery-images img {
+    width: calc(33% - 10px);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Softer shadow for images */
+    transition: transform 0.3s; /* Added transition for image hover */
+}
+
+.gallery-images img:hover {
+    transform: scale(1.05); /* Slightly enlarge images on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #1e2f20; /* Consistent header color for footer */
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .gallery-images img {
+        width: calc(50% - 10px);
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('./m5.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}

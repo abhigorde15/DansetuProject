@@ -1,0 +1,106 @@
+/* charity_events.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('./e1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.it {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #2c3e50; /* Darker blue for the heading */
+}
+
+header.new {
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: rgba(52, 152, 219, 0.7); /* Soft blue */
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background: rgba(52, 152, 219, 0.9);
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 15px;
+    overflow: hidden;
+    width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #3498db; /* Blue border under the image */
+}
+
+.info {
+    padding: 15px;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: #2980b9; /* Medium blue for card titles */
+}
+
+p {
+    margin: 5px 0;
+    color: #666; /* Lighter grey for text */
+}
+
+.fa {
+    color: #e67e22; /* Orange for icons */
+}
+
+.checked {
+    color: #e67e22; /* Orange for checked stars */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    color: #2c3e50; /* Darker blue for footer text */
+}

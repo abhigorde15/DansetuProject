@@ -1,0 +1,527 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    
+    display: flex;
+    flex-direction: column;
+     
+}
+
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 70px;
+}
+
+.slider{
+    height:700px;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    /* margin: 10px 100px;   */
+    margin-top: 10px;
+    background-image: url("background.jpg");
+    background-size:cover;
+    /* border-radius: 15px;  */
+    animation-name: sliding;
+    animation-direction:normal;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-delay: 0ms;
+    z-index:-1;
+    justify-content: flex-end;
+    align-items: center; 
+}
+@keyframes sliding{
+    0%{
+        background-image: url("wedding.jpg");
+        
+    }
+    45%{
+        background-image: url("pexels-cherubs-22669860.jpg");
+        background-size:cover;
+    }
+    70%{
+        background-image: url("birthday\ party.jpg");
+        background-size:cover;
+    }
+    100%{
+        background-image: url("pexels-rosario-fernandes-26325-3835638.jpg");
+        background-size:cover;
+    }
+}
+
+
+
+main {
+    /* background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #b5fffd 19%, #ffffff 39%, #ffffff 60%, #ffffff 80%, #ffffff 100%); */
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);  
+    flex-grow: 1;
+     padding: 50px; 
+}
+
+footer {
+    text-align: center;
+     padding: 20px; 
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+    color: white;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo img {
+    height: 60px;
+}
+/* .abhishek{
+    height: 20px;
+    width: 20px;
+} */
+/* .logo{
+    line-height: 8px;
+} */
+.sk {
+    /* background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); */
+
+    background-color: #0030e9;
+    background-image: linear-gradient(160deg, #0030e9 0%, #80c6d0 100%);
+
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    color: #28a745;
+    transform: scale(1.05);
+}
+
+.search-bar {
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #dcecf5;
+    border: none;
+    font-size: 16px;
+    width: 200px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar:focus {
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+    outline: none;
+}
+
+.products {
+    margin: 20px 0;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-left: 0px;
+}
+
+.product-card {
+    margin-top: 50px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    padding: 25px;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+#name{
+    margin: 20px;
+    margin-left: 0px;
+}
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 5px;
+    height: 350px;
+    object-fit:cover;
+}
+
+.product-card h3 {
+    margin: 20px 0;
+    font-size: 22px;
+}
+
+.product-card p {
+    font-size: 20px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+.add-to-cart {
+    margin-top: 0px;
+   
+}
+.add-to-cart-link{
+    text-decoration: none;
+    color: white;
+}
+
+.product-card button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+    .product-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+    header {
+        flex-direction: column;
+    }
+}
+
+
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+
+/* Profile section styles */
+#profile-section {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Align to the right */
+    /* background-color: rgba(255, 0, 0, 0.3); Temporary red background */
+}
+
+#profile-section a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    margin-right: 15px; /* Space between profile link and logout */
+}
+
+#profile-section i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+#profile-section .dropdown {
+    display: none; /* Hide dropdown by default */
+    position: absolute; /* Position it under the profile link */
+    background-color: white; /* Background color for the dropdown */
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure it's on top of other elements */
+}
+
+/* #profile-section:hover .dropdown {
+    display: block; /* Show dropdown on hover 
+} */
+
+.dropdown li {
+    padding: 10px; /* Add padding to dropdown items */
+}
+
+/* Style the dropdown menu links */
+#profile-section .dropdown li {
+    list-style: none;
+    padding: 8px 16px;
+}
+
+/* Change the color of the logout link on hover */
+#profile-section .dropdown li a {
+    color: #000;
+    text-decoration: none;
+    display: block;
+}
+/* Show the dropdown menu when hovering over profile */
+/* #profile-section:hover .dropdown {
+    display: block;
+} */
+/* Optional: Style the dropdown link on hover */
+/* #profile-section .dropdown li a:hover {
+    background-color: #f1f1f1;
+} */
+
+
+/* Popup styling */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width:60px;
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    display: flex;
+}
+
+/* Popup content box */
+.popup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+}
+.pop-close{
+    margin: 10px;
+}
+.pop-client{
+    margin: 10px;
+}
+.pop-organize{
+    margin: 20px;
+}
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+  /* Basic Styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Popup styling */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+}
+
+.popup-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.popup-content {
+    margin-bottom: 20px;
+}
+
+.popup button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #555;
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    z-index: 999;
+}
+
+
+
+/* new css gor pop-up */
+
+/* Overlay Style */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
+
+/* Popup Modal */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    text-align: center;
+}
+
+.popup-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.close-btn {
+    margin-top: 20px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+}

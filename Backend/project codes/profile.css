@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* .left-section {
+    flex: 1;
+    background-color: #0f4c75;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.welcome-message {
+    text-align: center;
+}
+
+.welcome-message h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+} */
+
+.left-section {
+    flex: 1;
+    background: url('profile.jpg') no-repeat center center; /* Add your EventQ image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.welcome-message {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);  /* Add a slight dark overlay for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.welcome-message h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-message p {
+    font-size: 18px;
+}
+
+
+.right-section {
+    flex: 1;
+    /* background-color: #ffba08; */
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.profile-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #118ab2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #073b4c;
+}
+
+.logout-btn button {
+    background-color: #ef476f;
+}
+
+.logout-btn button:hover {
+    background-color: #d7234b;
+}

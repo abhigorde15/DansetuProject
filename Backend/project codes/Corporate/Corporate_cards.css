@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('./c5.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.it {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(59, 176, 180, 0.7);
+    border-bottom: 5px solid #28a745;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2em;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+    color: #28a745;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    margin: 15px;
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #28a745;
+}
+
+.info {
+    padding: 15px;
+}
+
+.info h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.info p {
+    margin: 5px 0;
+}
+
+.info a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.info a:hover {
+    background-color: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(114, 214, 232, 0.7);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

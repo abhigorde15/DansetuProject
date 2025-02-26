@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Profile Page</title>
+    <link rel="stylesheet" href="profile.css"> <!-- Link to your CSS file -->
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-section {
+    flex: 1;
+    background: url('profile.jpg') no-repeat center center; /* Add your EventQ image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.welcome-message {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);  /* Add a slight dark overlay for better text readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.welcome-message h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.welcome-message p {
+    font-size: 18px;
+}
+
+.right-section {
+    flex: 1;
+    background-color: #FFDEE9;
+    background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
+
+.profile-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #118ab2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #073b4c;
+}
+
+.logout-btn button {
+    background-color: #ef476f;
+}
+
+.logout-btn button:hover {
+    background-color: #d7234b;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="welcome-message">
+                <h2>Welcome to Your Organizer Profile!</h2>
+                <p>We're glad to have you here, Organizer!</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="profile-card">
+                <h3>Profile</h3>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <p id="nameDisplay"></p> <!-- Display organizer name here -->
+                        <input type="text" id="name" placeholder="Enter your name" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <p id="emailDisplay"></p> <!-- Display organizer email here -->
+                        <input type="email" id="email" placeholder="Enter your email" value="">
+                    </div>
+                    
+                    <!-- <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" placeholder="Enter your organization name" value="">
+                    </div> -->
+
+                    <!-- <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" id="phone" placeholder="Enter your phone number" value="">
+                    </div> -->
+
+                    <!-- <button type="submit">Update Info</button> -->
+                </form>
+                <div class="logout-btn">
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      // Get user info from local storage
+const userInfo = JSON.parse(localStorage.getItem('user'));
+
+if (userInfo) {
+    // Populate the profile fields with user data
+    document.getElementById('name').value = userInfo.username || ''; // Set the username
+    document.getElementById('email').value = userInfo.email || ''; // Set the email
+    document.getElementById('organization').value = userInfo.organization || ''; // Set the organization name
+    document.getElementById('phone').value = userInfo.phone || ''; // Set the phone number
+} else {
+    // If no user info, show placeholders or default values
+    document.getElementById('name').value = ''; // Show 'Guest' when no user
+    document.getElementById('email').value = ''; // Show 'Not logged in' when no user
+    document.getElementById('organization').value = ''; // Show empty for organization
+    document.getElementById('phone').value = ''; // Show empty for phone
+}
+
+// Logout functionality
+document.getElementById("logout-btn").addEventListener("click", function() {
+    // Clear user info from local storage
+    localStorage.removeItem('userInfo'); // Remove user data from localStorage
+    window.location.href = "comp.html"; // Redirect to the organizer login page
+});
+
+// Profile form submission
+document.getElementById('profileForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const updatedName = document.getElementById('name').value;
+    const updatedEmail = document.getElementById('email').value;
+    const updatedOrganization = document.getElementById('organization').value;
+    const updatedPhone = document.getElementById('phone').value;
+
+    // Send updated data to your server
+    const response = await fetch('http://localhost:3000/api/update-organizer-profile', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${userInfo.token}`, // Include the JWT token if necessary
+        },
+        body: JSON.stringify({ 
+            username: updatedName, 
+            email: updatedEmail, 
+            organization: updatedOrganization, 
+            phone: updatedPhone 
+        }),
+    });
+
+    if (response.ok) {
+        alert('Profile updated successfully!'); // Notify success
+        // Optionally update the display data without refreshing
+        userInfo.username = updatedName;
+        userInfo.email = updatedEmail;
+        userInfo.organization = updatedOrganization;
+        userInfo.phone = updatedPhone;
+        localStorage.setItem('user', JSON.stringify(userInfo)); // Update local storage
+    } else {
+        const errorMessage = await response.text();
+        alert('Failed to update profile: ' + errorMessage); // Notify failure
+    }
+});
+
+// Logout functionality
+document.getElementById("logout-btn").addEventListener("click", function() {
+    // Clear localStorage on logout
+    localStorage.removeItem('userInfo'); // Remove user data from localStorage
+    window.location.href = "comp.html"; // Redirect to home or login page
+});
+
+    </script> <!-- Link to your JavaScript file -->
+</body>
+</html>

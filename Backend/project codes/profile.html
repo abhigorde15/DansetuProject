@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="welcome-message">
+                <h2>Welcome to Your Profile!</h2>
+                <p>We're glad to have you here.</p>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="profile-card">
+                <h3>Profile</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <p id="Name"></p> <!-- Display user name here -->
+                        <input type="text" id="name" placeholder="" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="" value="">
+                    </div>
+                    <!-- <button type="submit">Update Info</button> -->
+                </form>
+                <div class="logout-btn">
+                    <button id="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+
+    <script src="profile.js"></script>
+</body>
+</html>

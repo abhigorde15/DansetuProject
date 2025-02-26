@@ -1,0 +1,109 @@
+/* birthday_cards.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-image: url('./b6.webp'); /* Background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Title Styles */
+.it {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin: 0;
+    color: #0056b3; /* Blue color */
+}
+
+/* Navigation Styles */
+header.new {
+    margin-top: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #0056b3; /* Blue color */
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    color: #ffcc00; /* Soft yellow on hover */
+}
+
+/* Card Container Styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Individual Card Styles */
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    overflow: hidden;
+    width: 300px;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.info {
+    padding: 15px;
+}
+
+h2 {
+    color: #0056b3; /* Blue color */
+    font-size: 1.5em;
+}
+
+p {
+    margin: 10px 0;
+}
+
+/* Star Rating Styles */
+.fa-star.checked {
+    color: #ffcc00; /* Soft yellow for filled stars */
+}
+
+.fa-star {
+    color: #ccc; /* Gray color for empty stars */
+}
+
+/* Link Styles */
+a {
+    text-decoration: none;
+    color: #0056b3; /* Blue color */
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ffcc00; /* Soft yellow on hover */
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}

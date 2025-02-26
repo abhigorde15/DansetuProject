@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Concert Planners - EventQ</title>
+    <link rel="stylesheet" href="concert_cards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="music_card.css">
+    <style>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .card {
+            width: 250px; /* Card width */
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 100%; /* Make image responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+        .info {
+            padding: 5px; /* Reduced padding for smaller height */
+        }
+        h2 {
+            font-size: 16px; /* Reduced font size for header */
+            margin: 0; /* Remove margin for tighter spacing */
+        }
+        p {
+            font-size: 14px; /* Adjust font size for paragraphs */
+            margin: 2px 0; /* Reduce margin for paragraphs */
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="it">
+        <h1>Music Concert Planners</h1>
+        <header class="new">
+            <nav>
+                <a href="concerts.html">Home</a>
+            </nav>
+        </header>
+    </div>
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="./m1.jpg" alt="Planner 1">
+            <div class="info">
+                <h2>Live Music Productions</h2>
+                <p><i class="fa fa-map-marker"></i> Location: New York, USA</p>
+                <p><i class="fa fa-phone"></i> Contact: +1 555 123 4567</p>
+                <p><strong>Specializes in:</strong> Music festivals, outdoor concerts.</p>
+                <p><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> Rating: 4.0</p>
+                <p><strong>Services:</strong> Venue management, artist coordination, ticket sales.</p>
+                <a href="./music.html">View Profile</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="./music.webp" alt="Planner 2">
+            <div class="info">
+                <h2>Epic Concert Events</h2>
+                <p><i class="fa fa-map-marker"></i> Location: Los Angeles, USA</p>
+                <p><i class="fa fa-phone"></i> Contact: +1 555 654 3210</p>
+                <p><strong>Specializes in:</strong> Large concerts, arena events.</p>
+                <p><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star-half-o"></i> Rating: 4.6</p>
+                <p><strong>Services:</strong> Production management, sound and lighting, security.</p>
+                <a href="./music.html">View Profile</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="../m6.webp" alt="Planner 3">
+            <div class="info">
+                <h2>Festival Organizers</h2>
+                <p><i class="fa fa-map-marker"></i> Location: Berlin, Germany</p>
+                <p><i class="fa fa-phone"></i> Contact: +49 30 1234 5678</p>
+                <p><strong>Specializes in:</strong> Music festivals, cultural events.</p>
+                <p><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star checked"></i><i class="fa fa-star"></i> Rating: 4.8</p>
+                <p><strong>Services:</strong> Sponsorship acquisition, venue logistics, artist booking.</p>
+                <a href="./music.html">View Profile</a>
+            </div>
+        </div>
+        
+        <!-- Add more concert planner cards here if needed -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EventQ. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

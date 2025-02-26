@@ -1,0 +1,112 @@
+/* wedding.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-image: url('./w3.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #e91e63;
+}
+
+/* Event Details Section */
+.event-details {
+    background: rgba(255, 255, 255, 0.9);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #e91e63;
+}
+
+.organizer-info {
+    margin-bottom: 20px;
+}
+
+.organizer-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.organizer-info li {
+    margin: 5px 0;
+}
+
+/* Button Styles */
+button {
+    background-color: #e91e63;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c2185b;
+}
+
+/* Additional Info */
+.additional-info {
+    margin-top: 30px;
+}
+
+/* Gallery Styles */
+.gallery {
+    margin-top: 30px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery-images img {
+    width: calc(33% - 10px);
+    border-radius: 8px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 15px 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
