@@ -16,7 +16,9 @@ public class SecurityConfig {
         http
             .csrf().disable()
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/auth/**").permitAll() // Public authentication APIs
+                .requestMatchers("/api/user/profile").permitAll() // Allow this API without authentication
+                .requestMatchers("/**").permitAll() // Allow OPTIONS requests for CORS
                 .anyRequest().authenticated()
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
