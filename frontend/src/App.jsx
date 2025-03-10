@@ -10,6 +10,7 @@ import DonorProfile from './Components/Donor/DonorProfile';
 import Login from './Components/Login';
 import Food from './Components/Donor/Food';
 import InstituteDashboard from './Components/Institues/InstituteDashboard';
+import ShopkeeperDashboard from './Components/Shopkeepers/ShopkeeperDashboard';
 
 
 function App() {
@@ -24,6 +25,8 @@ function App() {
         <Route path="/about" element={<About />} />
        <Route path="/dashboard/donor" element={<DonorProfile/>}/>
        <Route path="/dashboard/institute" element={<InstituteDashboard/>}/>
+       <Route path="/dashboard/shopkeeper" element={<ShopkeeperDashboard/>}/>
+       
        <Route path="/institute/food" element={<Food/>}/>
       </Routes>
       <Footer/>
