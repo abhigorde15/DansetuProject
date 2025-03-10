@@ -69,12 +69,14 @@ public class UserService {
             System.out.println(institute);
 	        if (institute != null) {
 	            Map<String, String> data = new HashMap<>();
+	            data.put("id",String.valueOf(institute.getId()));
 	            data.put("name", institute.getUsername());
 	            data.put("email", institute.getEmail());
 	            data.put("category", request.getCategory());
 	            data.put("quantity", request.getQuantity());
 	            data.put("image", institute.getProfilePhoto()); // Assuming the user has an image URL
-	            
+	            data.put("status", request.getStatus());
+	            data.put("price", String.valueOf(request.getPrice()));
 	            responseList.add(data);
 	        }
 	    }

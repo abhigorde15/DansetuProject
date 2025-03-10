@@ -26,6 +26,7 @@ public class WishlistController {
     @GetMapping
     public ResponseEntity<List<Wishlist>> getUserWishlist(@RequestHeader("Authorization") String token) {
         int userId = getUserIdFromToken(token);
+        
         System.out.println(userId);
         return ResponseEntity.ok(wishlistService.getUserWishlist(userId));
     }

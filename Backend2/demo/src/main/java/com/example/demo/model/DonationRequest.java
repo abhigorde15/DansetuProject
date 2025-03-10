@@ -10,19 +10,39 @@ public class DonationRequest {
       private int reqId;
       private String category;
       private String quantity;
+      private int price;
+      private String status="Pending";
       
-      
-      @ManyToOne
-      @JoinColumn(name = "user_id", nullable = false) // Foreign key referring to User (Institute, Donor, Shopkeeper)
-      private User user;
+      public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
-    public DonationRequest(int reqId, String category, String quantity, User user) {
+
+	public DonationRequest(int reqId, String category, String quantity, int price, String status, User user) {
 		super();
 		this.reqId = reqId;
 		this.category = category;
 		this.quantity = quantity;
+		this.price = price;
+		this.status = status;
 		this.user = user;
 	}
+
+
+	@ManyToOne
+      @JoinColumn(name = "user_id", nullable = false) // Foreign key referring to User (Institute, Donor, Shopkeeper)
+      private User user;
+
+   
 	public DonationRequest() {}
 	public int getReqId() {
 		return reqId;

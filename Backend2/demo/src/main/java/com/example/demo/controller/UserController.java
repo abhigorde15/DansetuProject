@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,7 +50,8 @@ public class UserController {
     	DonationRequest savedReq = userService.addRequest(request,token);
     	return ResponseEntity.ok(Map.of(
     			"category",savedReq.getCategory(),
-    			"quantity",savedReq.getQuantity()
+    			"quantity",savedReq.getQuantity(),
+    			"price" , String.valueOf(savedReq.getPrice()) 
     			));
     }
    

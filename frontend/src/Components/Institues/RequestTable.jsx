@@ -11,6 +11,7 @@ const RequestTable = ({ requests, cancelRequest }) => {
             <tr className="bg-gray-200 text-gray-700">
               <th className="p-3 text-left">Category</th>
               <th className="p-3 text-left">Quantity</th>
+              <th className="p-3 text-left">Price</th>
               <th className="p-3 text-left">Status</th>
               <th className="p-3 text-center">Actions</th>
             </tr>
@@ -20,11 +21,12 @@ const RequestTable = ({ requests, cancelRequest }) => {
               <tr key={req.id} className="border-b hover:bg-gray-100 transition">
                 <td className="p-3">{req.category}</td>
                 <td className="p-3">{req.quantity}</td>
+                <td className="p-3">{req.price}</td>
                 <td
                   className={`p-3 font-semibold ${
-                    req.status === ""
+                    req.status === "Approved"
                       ? "text-yellow-500"
-                      : req.status === "Approved"
+                      : req.status === "Pending"
                       ? "text-blue-500"
                       : "text-green-500"
                   }`}

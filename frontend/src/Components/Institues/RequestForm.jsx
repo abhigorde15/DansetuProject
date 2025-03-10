@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const RequestForm = ({ addRequest }) => {
-  const [formData, setFormData] = useState({ category: "", quantity: "" });
+  const [formData, setFormData] = useState({ category: "", quantity: "",price :"" });
   const token = localStorage.getItem("token");
 
   const handleSubmit = async (e) => {
@@ -50,6 +50,15 @@ const RequestForm = ({ addRequest }) => {
           placeholder="Enter Quantity (e.g., 50 kg, 10 packs)"
           value={formData.quantity}
           onChange={(e) => setFormData({ ...formData, quantity: e.target.value })}
+          required
+        />
+         <input
+          type="text"
+          name="price"
+          className="border p-2 rounded"
+          placeholder="Enter Estimate Price in INR"
+          value={formData.price}
+          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
           required
         />
 
