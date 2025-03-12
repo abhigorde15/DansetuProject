@@ -8,7 +8,8 @@ const Sidebar = () => {
     role: "",
     profilePhoto: "",
   });
-
+  const token = localStorage.getItem("token");
+ console.log(token)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -33,6 +34,22 @@ const Sidebar = () => {
     
     fetchUserData();
   }, []);
+  const handleLogout = async () => {
+    try {
+        await fetch("http://localhost:8080/api/auth/logout", {
+            method: "POST",
+            credentials: "include", // Needed if using cookies
+        });
+
+        // Remove token from local storage if stored there
+        localStorage.removeItem("token");
+
+        // Redirect to login page
+        window.location.href = "/login";
+    } catch (error) {
+        console.error("Logout failed", error);
+    }
+};
 
   return (
     <aside className="w-1/4 bg-gray-100 p-4 rounded-lg">
@@ -56,7 +73,7 @@ const Sidebar = () => {
           <li><a href="#" className="text-blue-500">Saved Requests</a></li>
           <li><a href="#" className="text-blue-500">Preferences</a></li>
           <li><a href="#" className="text-blue-500">Payment History</a></li>
-          <li><a href="/" className="text-red-500">Logout</a></li>
+          <li><button onClick={handleLogout} className="text-red-500">Logout</button></li>
         </ul>
       </nav>
     </aside>

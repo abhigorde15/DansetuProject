@@ -37,7 +37,7 @@ public class WishlistController {
         return ResponseEntity.ok("Item removed from wishlist");
     }
 
-    // Helper method to extract user ID from token (implement based on your JWT logic)
+   
     private int getUserIdFromToken(String token) {
         // Implement JWT decoding logic here
         return 1; // Dummy user ID, replace with actual logic

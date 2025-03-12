@@ -6,8 +6,8 @@ public class UserRequest {
     private String username;
     private String email;
     private String password;
-    private MultipartFile profileImage; // For profile image upload
-    private String role; // Added role field
+    private MultipartFile profileImage; 
+    private String role;
 
     // Getters and Setters
     public String getUsername() { return username; }

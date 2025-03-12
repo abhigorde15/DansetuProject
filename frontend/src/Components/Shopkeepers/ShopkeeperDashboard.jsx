@@ -4,42 +4,13 @@ import axios from "axios";
 import Sidebar from "../Donor/Sidebar";
 import FeedbackForm from "../Institues/FeedbackForm";
 import ListShop from "./ListShop";
-
+import ListProduct from "./ListProduct";
+import Products from "./Products";
 const ShopkeeperDashboard = () => {
-  const [requests, setRequests] = useState([]);
-
-  // Fetch requests from backend when component mounts
-  useEffect(() => {
-    const fetchRequests = async () => {
-      const token = localStorage.getItem("token");
-      try {
-        const response = await axios.get("http://localhost:8080/api/donation/req", {
-          headers: { Authorization: `${token}` },
-        });
-
-        console.log("Requests data:", response.data);
-        setRequests(response.data); // Set state with fetched data
-      } catch (error) {
-        console.error("Error fetching requests:", error);
-      }
-    };
-
-    fetchRequests();
-  }, []);
-
-  // Function to cancel a request
-  const cancelRequest = async (id) => {
-    const token = localStorage.getItem("token");
-    try {
-      await axios.delete(`http://localhost:8080/api/donation/req/${id}`, {
-        headers: { Authorization: `${token}` },
-      });
-
-      setRequests((prevRequests) => prevRequests.filter((req) => req.reqId !== id));
-    } catch (error) {
-      console.error("Error canceling request:", error);
-    }
-  };
+ 
+ function onProductAdded() {
+    console.log("Product Added");
+  }
 
   return (
     <div className="flex mt-20">
@@ -49,7 +20,12 @@ const ShopkeeperDashboard = () => {
          <div className="mb-6">
           <ListShop />
          </div>
-        
+         <div className="mb-6">
+            <ListProduct onProductAdded={onProductAdded} />
+          </div>
+          <div>
+            <Products  />
+          </div>
         <FeedbackForm />
       </div>
     </div>

@@ -29,48 +29,44 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function CustomizedDialogs({ open, handleClose }) {
+export default function DialogProducts({ open, handleClose }) {
   const [shopData, setShopData] = React.useState({
-    shopName: "",
-    ownerName: "",
-    email: "",
-    phone: "",
-    address: "",
-    openingHours: "",
-    categories: "",
-    image: null, // File here
-    description: "",
+    pName: "",
+    price: "",
+    discount: "",
+    stockQuantity: "",
+    category: "",
+    pImage: null, 
+   
   });
 
   const token = localStorage.getItem("token");
-
+  const id = localStorage.getItem("id");
+  console.log(id);
   const handleChange = (e) => {
     setShopData({ ...shopData, [e.target.name]: e.target.value });
   };
 
   const handleFileChange = (e) => {
     
-    setShopData({ ...shopData, image: e.target.files[0] });
+    setShopData({ ...shopData, pImage: e.target.files[0] });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("image", shopData.image); 
-    formData.append("shopName", shopData.shopName);
-    formData.append("ownerName", shopData.ownerName);
-    formData.append("email", shopData.email);
-    formData.append("phone", shopData.phone);
-    formData.append("address", shopData.address);
-    formData.append("openingHours", shopData.openingHours);
-    formData.append("categories", shopData.categories);
-    formData.append("description", shopData.description);
-    formData.append("token", token); // Token सुद्धा पाठवा
+    formData.append("pImage", shopData.pImage); 
+    formData.append("pName", shopData.pName);
+    formData.append("price", shopData.price);
+    formData.append("discount", shopData.discount);
+    formData.append("stockQuantity", shopData.stockQuantity);
+    formData.append("category", shopData.category);
+    formData.append("token", token); 
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/shop/add",
+        "http://localhost:8080/api/product/add",
         formData,
         {
           headers: {
@@ -79,8 +75,7 @@ export default function CustomizedDialogs({ open, handleClose }) {
           },
         }
       );
-      localStorage.setItem("shopId", response.data.shopId);
-       
+
      
       handleClose();
     } catch (error) {
@@ -91,7 +86,7 @@ export default function CustomizedDialogs({ open, handleClose }) {
   return (
     <React.Fragment>
       <BootstrapDialog onClose={handleClose} open={open}>
-        <DialogTitle sx={{ m: 0, p: 2 }}>List Your Shop</DialogTitle>
+        <DialogTitle sx={{ m: 0, p: 2 }}>List Your Product</DialogTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -111,59 +106,42 @@ export default function CustomizedDialogs({ open, handleClose }) {
             }}
           >
             <TextField
-              label="Shop Name"
-              name="shopName"
+              label="Product Name"
+              name="pName"
               fullWidth
-              value={shopData.shopName}
+              value={shopData.pName}
               onChange={handleChange}
               required
             />
             <TextField
-              label="Owner Name"
-              name="ownerName"
+              label="Price"
+              name="price"
               fullWidth
-              value={shopData.ownerName}
+              value={shopData.price}
               onChange={handleChange}
               required
             />
             <TextField
-              label="Email"
-              name="email"
-              type="email"
+              label="Discount"
+              name="discount"
+              type="Number"
               fullWidth
-              value={shopData.email}
+              value={shopData.discount}
               onChange={handleChange}
               required
             />
             <TextField
-              label="Phone Number"
-              name="phone"
+              label="Stock Quantity"
+              name="stockQuantity"
+              type="Number"
               fullWidth
-              value={shopData.phone}
+              value={shopData.stockQuantity}
               onChange={handleChange}
               required
-            />
-            <TextField
-              label="Address"
-              name="address"
-              fullWidth
-              multiline
-              rows={2}
-              value={shopData.address}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              label="Opening Hours (e.g., 9 AM - 9 PM)"
-              name="openingHours"
-              fullWidth
-              value={shopData.openingHours}
-              onChange={handleChange}
-              required
-            />
+            />          
             <Select
-              name="categories"
-              value={shopData.categories}
+              name="category"
+              value={shopData.category}
               onChange={handleChange}
               fullWidth
               required
@@ -172,21 +150,14 @@ export default function CustomizedDialogs({ open, handleClose }) {
               <MenuItem value="Medical">Medical</MenuItem>
               <MenuItem value="Clothes">Clothes</MenuItem>
             </Select>
+           
             <input
               type="file"
-              accept="image"
+              accept="image/*"
               onChange={handleFileChange}
               style={{ width: "100%" }}
             />
-            <TextField
-              label="Short Description"
-              name="description"
-              fullWidth
-              multiline
-              rows={3}
-              value={shopData.description}
-              onChange={handleChange}
-            />
+          
             <Button
               type="submit"
               variant="contained"
