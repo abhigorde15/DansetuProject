@@ -52,7 +52,7 @@ const Sidebar = () => {
 };
 
   return (
-    <aside className="w-1/4 bg-gray-100 p-4 rounded-lg">
+    <aside className="w-1/4 bg-gray-100 p-4 rounded-lg fixed left-0 top-10 h-full overflow-y-auto">
       <div className="text-center">
       {user.profilePhoto && (
   <img

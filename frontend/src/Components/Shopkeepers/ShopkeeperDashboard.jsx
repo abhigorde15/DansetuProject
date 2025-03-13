@@ -13,9 +13,9 @@ const ShopkeeperDashboard = () => {
   }
 
   return (
-    <div className="flex mt-20">
+    <div className="flex mt-20 ">
       <Sidebar />
-      <div className="ml-1/4 p-6 w-full">
+      <div className="ml-60 p-6 w-full">
         <h1 className="text-3xl font-bold mb-6 text-center">ShopKeeper Dashboard</h1>
          <div className="mb-6">
           <ListShop />

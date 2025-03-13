@@ -2,8 +2,10 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import CustomizedDialogs from "./CustomizedDialogs";
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Food = () => {
+  const navigate = useNavigate();
   const [filter, setFilter] = useState("");
  // const [wishlist, setWishlist] = useState([]);
   const [institutes,setInstitute] = useState([])
@@ -70,28 +72,18 @@ const Food = () => {
             <p className="text-gray-600 text-lg">Category: {institute.category}</p>
             <p className="text-gray-900 font-medium text-lg">Quantity: {institute.quantity}</p>
             <p className="text-gray-900 font-medium text-lg">Total Price: {institute.price}</p>
-            <Button
-  variant="contained"
-  onClick={() => {
-    console.log(institute)
-    setOpen(true)}}
-  sx={{
-    backgroundColor: "#3B82F6", // bg-blue-500
-    color: "white", // text-white
-    paddingX: "1rem", // px-4
-    paddingY: "0.5rem", // py-2
-    borderRadius: "0.5rem", // rounded-lg
-    transition: "background-color 0.3s ease-in-out", // transition effect
-    marginTop: "1rem", // mt-4
-    "&:hover": {
-      backgroundColor: "#2563EB", // hover:bg-blue-600
-    },
-  }}
->
-          Proceed to Donate
-      </Button >
+            <button
+               onClick={() => {
+                navigate("/product/food")
+                
+               }}
+               className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4 transition duration-300 hover:bg-blue-600"
+             >
+               Proceed to Donate
+             </button>
+
            
-            <CustomizedDialogs institute ={institute} open={open} handleClose={() => setOpen(false)} />
+          
           </div>
         ))}
       </div>

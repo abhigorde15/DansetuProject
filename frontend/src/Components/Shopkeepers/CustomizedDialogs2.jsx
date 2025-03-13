@@ -18,10 +18,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     alignItems: "center",
     width: "100%",
   },
-  "& .MuiDialogActions-root": {
-    padding: theme.spacing(1),
-    justifyContent: "center",
-  },
   "& .MuiDialog-paper": {
     minWidth: "600px",
     maxWidth: "90vw",
@@ -29,67 +25,81 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-export default function DialogProducts({ open, handleClose }) {
-  const [shopData, setShopData] = React.useState({
+export default function CustomizedDialogs({ open, handleClose, product,onUpdate }) {
+  const [productVal, setProductVal] = React.useState({
     pName: "",
     price: "",
     discount: "",
     stockQuantity: "",
     category: "",
-    pImage: null, 
-   
+  
   });
 
+  // ✅ selected product set in state when dialog opens
+  React.useEffect(() => {
+    
+    if (product) {
+      setProductVal({
+        id: product.id || "",
+        pName: product.pName || "",
+        price: product.price || "",
+        discount: product.discount || "",
+        stockQuantity: product.stockQuantity || "",
+        category: product.category || "",
+      
+      });
+    }
+  }, [product]);
+
   const token = localStorage.getItem("token");
- 
+
   const handleChange = (e) => {
-    setShopData({ ...shopData, [e.target.name]: e.target.value });
+    setProductVal((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
   };
 
-  const handleFileChange = (e) => {
-    setShopData({ ...shopData, pImage: e.target.files[0] });
-  };
+  // const handleFileChange = (e) => {
+  //   setProductVal((prev) => ({
+  //     ...prev,
+  //     pImage: e.target.files[0],
+  //   }));
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
   
-    if (!shopData.pImage) {
-      console.error("Please select an image");
-      return;
-    }
-  
-    const formData = new FormData();
-    formData.append("pImage", shopData.pImage);
-    formData.append("pName", shopData.pName);
-    formData.append("price", shopData.price);
-    formData.append("discount", shopData.discount);
-    formData.append("stockQuantity", shopData.stockQuantity);
-    formData.append("category", shopData.category);
-  
+    // if (productVal.pImage) {
+    //     formData.append("pImage", productVal.pImage);
+    // }
+
+   
     try {
-      const response = await axios.post(
-        "http://localhost:8080/api/product/add",
-        formData,
+      
+      const response = await axios.put(
+        `http://localhost:8080/api/product/update/${productVal.id}`,
+        productVal,
         {
           headers: {
-            Authorization: `${token}`, // ✅ Corrected Authorization header
-            "Content-Type": "multipart/form-data",
+            Authorization: `${token}`,
+            "Content-Type": "application/json", 
           },
         }
       );
-  
-      console.log("Product added successfully:", response.data);
+
+      onUpdate(response.data);
       handleClose();
     } catch (error) {
-      console.error("Error submitting shop data:", error);
+      console.error("Error updating product:", error);
     }
   };
-  
 
   return (
     <React.Fragment>
       <BootstrapDialog onClose={handleClose} open={open}>
-        <DialogTitle sx={{ m: 0, p: 2 }}>List Your Product</DialogTitle>
+        <DialogTitle sx={{ m: 0, p: 2 }}>Update Your Product</DialogTitle>
         <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -112,7 +122,7 @@ export default function DialogProducts({ open, handleClose }) {
               label="Product Name"
               name="pName"
               fullWidth
-              value={shopData.pName}
+              value={productVal.pName}
               onChange={handleChange}
               required
             />
@@ -120,7 +130,7 @@ export default function DialogProducts({ open, handleClose }) {
               label="Price"
               name="price"
               fullWidth
-              value={shopData.price}
+              value={productVal.price}
               onChange={handleChange}
               required
             />
@@ -129,7 +139,7 @@ export default function DialogProducts({ open, handleClose }) {
               name="discount"
               type="Number"
               fullWidth
-              value={shopData.discount}
+              value={productVal.discount}
               onChange={handleChange}
               required
             />
@@ -138,13 +148,13 @@ export default function DialogProducts({ open, handleClose }) {
               name="stockQuantity"
               type="Number"
               fullWidth
-              value={shopData.stockQuantity}
+              value={productVal.stockQuantity}
               onChange={handleChange}
               required
-            />          
+            />
             <Select
               name="category"
-              value={shopData.category}
+              value={productVal.category}
               onChange={handleChange}
               fullWidth
               required
@@ -153,14 +163,10 @@ export default function DialogProducts({ open, handleClose }) {
               <MenuItem value="Medical">Medical</MenuItem>
               <MenuItem value="Clothes">Clothes</MenuItem>
             </Select>
-           
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              style={{ width: "100%" }}
-            />
-          
+
+            
+            {/* <input type="file" accept="image/*" onChange={handleFileChange} /> */}
+
             <Button
               type="submit"
               variant="contained"
@@ -168,7 +174,7 @@ export default function DialogProducts({ open, handleClose }) {
               fullWidth
               sx={{ mt: 2 }}
             >
-              Submit
+              Update Product
             </Button>
           </Box>
         </DialogContent>

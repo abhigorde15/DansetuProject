@@ -13,7 +13,7 @@ const DonorProfile = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="w-3/4 space-y-6">
+      <div className="w-3/4 space-y-6 ml-60">
        
       
 

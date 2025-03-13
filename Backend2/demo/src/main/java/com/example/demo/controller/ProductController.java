@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -18,6 +19,10 @@ import com.example.demo.model.Shop;
 import com.example.demo.service.CloudinaryService;
 import com.example.demo.service.ProductService;
 import com.example.demo.service.ShopService;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 @RestController
 @RequestMapping("/api/product")
@@ -54,5 +59,20 @@ public class ProductController {
     @GetMapping("/user")
     public ResponseEntity<?> fetchUserProducts( @RequestHeader("Authorization") String token){
     	return productService.fetchProducts(token);
+    }
+    @PutMapping("update/{id}")
+    public  ResponseEntity<?> updateProduct(@PathVariable String id, @RequestBody Products product) {
+        int intId = Integer.parseInt(id);
+        
+        return productService.updateProduct(intId,product);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteProduct(@PathVariable String id){
+    	int intId = Integer.parseInt(id);
+    	return productService.deleteProduct(intId);
+    }
+    @GetMapping("/food")
+    public  ResponseEntity<?>GetAllFoodProducts(){
+    	return productService.findAllFoodProducts();
     }
 }

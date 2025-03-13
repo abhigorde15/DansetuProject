@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +63,44 @@ public class ProductService {
 	        }
 
 	        return ResponseEntity.ok(products);
+		
+	}
+	public ResponseEntity<?> updateProduct(int id, Products product) {
+		Products reqProduct = productRepository.findById(id).orElseThrow();
+		reqProduct.setCategory(product.getCategory());
+		reqProduct.setDiscount(product.getDiscount());
+		reqProduct.setPrice(product.getPrice());
+		reqProduct.setpName(product.getpName());
+		reqProduct.setStockQuantity(product.getStockQuantity());
+//		if(product.getImageUrl() != null) {
+//			reqProduct.setImageUrl(product.getImageUrl());
+//		}
+
+		Products savedProduct =  productRepository.save(reqProduct);
+		return ResponseEntity.ok(savedProduct);
+	}
+	public ResponseEntity<?> deleteProduct(int id) {
+		try {
+			if(!productRepository.existsById(id)) {
+				ResponseEntity.status(404).body("No such Product Found with id"+id);
+			}
+			 productRepository.deleteById(id);
+			 ResponseEntity.ok("Successfully Deleted");
+		}
+	    catch(EmptyResultDataAccessException e) {
+	    	return ResponseEntity.status(404).body("Product not found with ID: " + id);
+	    }
+		
+		return ResponseEntity.ok("Deleted Successfully");
+	}
+	public ResponseEntity<?> findAllFoodProducts() {
+		try {
+			List<Products>products = productRepository.findByCategory("Food");
+			return ResponseEntity.ok(products);
+		}
+		 catch(EmptyResultDataAccessException e) {
+		    	return ResponseEntity.status(404).body("Products not found " );
+		    }
 		
 	}
 

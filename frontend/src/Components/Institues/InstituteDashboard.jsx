@@ -44,7 +44,7 @@ const InstituteDashboard = () => {
   return (
     <div className="flex mt-20">
       <Sidebar />
-      <div className="ml-1/4 p-6 w-full">
+      <div className="ml-80 p-6 w-full">
         <h1 className="text-3xl font-bold mb-6 text-center">Institute Dashboard</h1>
         <div className="mb-6">
           <RequestForm  addRequest={(newRequest) => setRequests((prev) => [...prev, newRequest])} />
