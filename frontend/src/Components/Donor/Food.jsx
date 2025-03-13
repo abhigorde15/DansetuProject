@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import CustomizedDialogs from "./CustomizedDialogs";
+
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
