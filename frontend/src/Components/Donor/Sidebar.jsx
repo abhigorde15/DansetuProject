@@ -9,7 +9,7 @@ const Sidebar = () => {
     profilePhoto: "",
   });
   const token = localStorage.getItem("token");
- console.log(token)
+ 
   useEffect(() => {
     const fetchUserData = async () => {
       try {

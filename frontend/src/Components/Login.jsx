@@ -20,9 +20,9 @@ const Login = () => {
       if (response.data && response.data.token && response.data.role) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("role", response.data.role);
-
+        localStorage.setItem("loggedIn",true)
         setMessage("You have logged in successfully!");
-
+        
         // Navigate based on role
         const role = response.data.role.toLowerCase(); // Ensure case consistency
         switch (role) {

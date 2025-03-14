@@ -16,7 +16,8 @@ let Navbar  = ()=>{
   
           // Remove token from local storage if stored there
           localStorage.removeItem("token");
-  
+          localStorage.removeItem("role");
+          localStorage.setItem("loggedIn",false);
           // Redirect to login page
           window.location.href = "/login";
       } catch (error) {

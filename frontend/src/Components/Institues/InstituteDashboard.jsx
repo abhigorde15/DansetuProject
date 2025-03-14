@@ -16,8 +16,6 @@ const InstituteDashboard = () => {
         const response = await axios.get("http://localhost:8080/api/donation/req", {
           headers: { Authorization: `${token}` },
         });
-
-        console.log("Requests data:", response.data);
         setRequests(response.data); // Set state with fetched data
       } catch (error) {
         console.error("Error fetching requests:", error);
