@@ -62,7 +62,9 @@ const FoodShops = () => {
       const response = await axios.post(
         "http://localhost:8080/api/payment",
         { amount },
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { 
+          Authorization: `${localStorage.getItem("token")}`,
+          "Content-Type": "application/json" } }
       );
 
       if (!razorpayLoaded) {
